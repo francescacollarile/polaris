@@ -1,0 +1,10 @@
+# File che non devono finire nel deploy.
+# Le immagini pubblicate stanno in public/immagini/ e vanno caricate.
+
+# Archivio delle fotografie originali ad alta risoluzione
+/foto/
+
+# Documentazione di progetto
+/README.md
+/AGENTS.md
+/CLAUDE.md
