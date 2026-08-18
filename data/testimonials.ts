@@ -43,9 +43,9 @@ export const TESTIMONIALS: Testimonial[] = [
       "Sono rimasta veramente tanto stupita, in positivo. Inizialmente quando ho sentito “Coach Online” ho pensato che fossi una delle tante… ma visto che ti aveva consigliato il mio nutrizionista Alessandro, ho voluto provare per un mese. Ho capito velocemente che invece eri una tosta e avresti potuto portarmi in alto dove volevo io. Molto più preparata rispetto ad altri coach che ho visto, molto scrupolosa sulla tecnica senza nessun minimo errore: questa è la base per poter crescere sportivamente e andare lontano. Sempre disponibile per qualsiasi dubbio e molto paziente, visto che molti errori sono radicati. Riuscire a spiegare bene nei dettagli la tecnica base per fare gli esercizi fatti bene e “farla recepire” non solo non è da tutti, ma questo fa capire quanto fai seriamente il tuo lavoro. Oltre tutto si percepisce che sei una splendida persona anche nella vita di tutti i giorni.",
   },
   {
-    name: "Federico Gervasi",
+    name: "Alessia Panzera",
     quote:
-      "Mi sono trovato benissimo professionalmente da subito, altrimenti non continuerei a pagarti 😂",
+      "Sceglierei la coach Francesca altre miliardi di volte perché ogni giorno è super presente, disponibile, sa consigliare e ascoltare, ti stimola a fare sempre di più, ti supporta in ogni momento senza mai smettere, ma la cosa che mi piace di più è che crede in te dal primo giorno.",
   },
   {
     name: "Guerino Iandiorio",

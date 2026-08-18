@@ -83,7 +83,9 @@ export function AboutFrancesca() {
                       placeholderLabel="Premiazione — medaglia"
                       sizes="(max-width: 1024px) 50vw, 20vw"
                       className="relative aspect-square w-full rounded-lg border border-gold-600/45 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.95)]"
-                      imageClassName="brightness-[0.94] contrast-[1.05] saturate-[0.95]"
+                      /* Foto molto verticale: ancorata in alto, altrimenti il
+                         ritaglio quadrato taglierebbe testa e medaglia. */
+                      imageClassName="object-[50%_22%] brightness-[0.94] contrast-[1.05] saturate-[0.95]"
                     />
                     <div
                       aria-hidden="true"

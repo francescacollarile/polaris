@@ -16,7 +16,7 @@
  * Il valore viene validato: un indirizzo malformato non deve far fallire
  * la build, perché `metadataBase` costruisce un oggetto URL.
  */
-const DOMINIO = "https://polaris-two-rust.vercel.app";
+const DOMINIO = "https://polaris-pt.vercel.app";
 
 function originValido(valore: string | undefined): string | null {
   if (!valore) return null;
