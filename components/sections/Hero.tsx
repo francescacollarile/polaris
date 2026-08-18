@@ -96,7 +96,7 @@ export function Hero() {
               transition={{ duration: 0.9, delay: 0.62, ease: EASE_POLARIS }}
               className="mt-8 max-w-xl text-base leading-relaxed text-fog sm:text-lg"
             >
-              Programmazione personalizzata per costruire forza, ipertrofia e
+              Programmazione strutturata per costruire forza, ipertrofia e
               performance attraverso un percorso progettato{" "}
               <span className="text-cream">intorno a te</span>.
             </motion.p>
@@ -200,18 +200,6 @@ export function Hero() {
                   className="pointer-events-none absolute inset-0 rounded-lg bg-[linear-gradient(to_top,rgba(5,5,5,0.8),transparent_45%)]"
                 />
 
-                {/* Riconoscimento reale, subito visibile */}
-                <div className="absolute -bottom-5 left-4 right-4 sm:-bottom-6 sm:left-6 sm:right-auto">
-                  <div className="glass flex items-center gap-3.5 rounded-full border border-hairline-strong px-5 py-3">
-                    <StarMark className="h-3.5 w-3.5 shrink-0 text-gold-300" />
-                    <p className="text-[0.66rem] font-semibold uppercase leading-tight tracking-[0.14em] text-fog">
-                      3° posto · Calisthenics Endurance
-                      <span className="mt-0.5 block text-muted">
-                        Alessandria 2024 — Avanzato Femminile
-                      </span>
-                    </p>
-                  </div>
-                </div>
               </motion.div>
             </div>
           </motion.div>

@@ -13,15 +13,15 @@ import { CTA, GYM } from "@/data/site";
 const POINTS = [
   {
     title: "Correzione in tempo reale",
-    body: "La tecnica si aggiusta mentre stai eseguendo, non tre giorni dopo davanti a un video.",
+    body: "La tecnica si aggiusta mentre la stai eseguendo.",
   },
   {
     title: "Carichi gestiti insieme",
     body: "Scelta del carico, dei recuperi e dell'intensità decisa sul momento, su come stai andando quel giorno.",
   },
   {
-    title: "Stessa logica di programmazione",
-    body: "Anche dal vivo il lavoro segue una struttura: analisi, strategia, progressione. Non sessioni scollegate tra loro.",
+    title: "Cosa impari davvero in sala",
+    body: "Come un movimento va fatto in modo da percepirlo tuo, e come tu devi muovere quel carico.",
   },
 ];
 

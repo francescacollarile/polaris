@@ -6,12 +6,29 @@
  */
 
 /**
- * Dominio pubblico del sito.
- * Impostare `NEXT_PUBLIC_SITE_URL` in `.env.local` prima del deploy
- * (usato per canonical, Open Graph, sitemap e robots.txt).
+ * Dominio pubblico del sito: usato per canonical, Open Graph, sitemap
+ * e robots.txt.
+ *
+ * Quando arriverà il dominio definitivo basta cambiare `DOMINIO`, oppure
+ * impostare `NEXT_PUBLIC_SITE_URL` fra le variabili d'ambiente: se è
+ * presente ed è un URL valido ha la precedenza.
+ *
+ * Il valore viene validato: un indirizzo malformato non deve far fallire
+ * la build, perché `metadataBase` costruisce un oggetto URL.
  */
+const DOMINIO = "https://polaris-two-rust.vercel.app";
+
+function originValido(valore: string | undefined): string | null {
+  if (!valore) return null;
+  try {
+    return new URL(valore.trim()).origin;
+  } catch {
+    return null;
+  }
+}
+
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "http://localhost:3000";
+  originValido(process.env.NEXT_PUBLIC_SITE_URL) ?? DOMINIO;
 
 export const BRAND = {
   name: "Polaris",

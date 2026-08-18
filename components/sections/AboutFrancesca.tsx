@@ -2,6 +2,7 @@ import { BrandImage } from "@/components/media/BrandImage";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/SectionHeading";
+import { StarMark } from "@/components/ui/StarMark";
 import { IMAGES } from "@/data/images";
 import { BRAND } from "@/data/site";
 
@@ -67,25 +68,53 @@ export function AboutFrancesca() {
                 </div>
               </Reveal>
 
-              {/* Seconda immagine sfalsata */}
+              {/* Coppia di dettagli sfalsata: premiazione a sinistra,
+                  allenamento a destra. La didascalia riguarda la medaglia. */}
               <Reveal delay={0.16}>
-                <div className="relative -mt-20 ml-auto w-[52%] sm:-mt-28 sm:w-[46%]">
-                  <div
-                    aria-hidden="true"
-                    className="halo-gold pointer-events-none absolute -inset-6 opacity-70 blur-xl"
-                  />
-                  <BrandImage
-                    src={IMAGES.francesca03}
-                    alt="Francesca Collarile durante un allenamento a corpo libero"
-                    placeholderLabel="Dettaglio — allenamento"
-                    sizes="(max-width: 1024px) 50vw, 20vw"
-                    className="relative aspect-square w-full rounded-lg border border-hairline-strong shadow-[0_40px_90px_-30px_rgba(0,0,0,0.95)]"
-                    imageClassName="brightness-[0.94] contrast-[1.05] saturate-[0.95]"
-                  />
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 rounded-lg bg-[radial-gradient(120%_120%_at_50%_45%,transparent_30%,rgba(5,5,5,0.68)_100%)]"
-                  />
+                <div className="relative -mt-16 grid grid-cols-2 gap-3 sm:-mt-24 sm:gap-4">
+                  <div className="relative">
+                    <div
+                      aria-hidden="true"
+                      className="halo-gold pointer-events-none absolute -inset-6 opacity-80 blur-xl"
+                    />
+                    <BrandImage
+                      src={IMAGES.medaglia}
+                      alt="Premiazione del 3° posto al Calisthenics Endurance di Alessandria 2024"
+                      placeholderLabel="Premiazione — medaglia"
+                      sizes="(max-width: 1024px) 50vw, 20vw"
+                      className="relative aspect-square w-full rounded-lg border border-gold-600/45 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.95)]"
+                      imageClassName="brightness-[0.94] contrast-[1.05] saturate-[0.95]"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 rounded-lg bg-[radial-gradient(120%_120%_at_50%_45%,transparent_35%,rgba(5,5,5,0.6)_100%)]"
+                    />
+
+                    <p className="mt-4 flex gap-2.5 text-[0.62rem] font-semibold uppercase leading-snug tracking-[0.12em] text-fog">
+                      <StarMark className="mt-0.5 h-2.5 w-2.5 shrink-0 text-gold-300" />
+                      <span>
+                        3° posto · Calisthenics Endurance
+                        <span className="mt-1 block font-normal tracking-[0.08em] text-muted">
+                          Alessandria 2024 — Avanzato Femminile
+                        </span>
+                      </span>
+                    </p>
+                  </div>
+
+                  <div className="relative">
+                    <BrandImage
+                      src={IMAGES.francesca03}
+                      alt="Francesca Collarile durante un allenamento a corpo libero"
+                      placeholderLabel="Dettaglio — allenamento"
+                      sizes="(max-width: 1024px) 50vw, 20vw"
+                      className="relative aspect-square w-full rounded-lg border border-hairline-strong shadow-[0_40px_90px_-30px_rgba(0,0,0,0.95)]"
+                      imageClassName="brightness-[0.94] contrast-[1.05] saturate-[0.95]"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 rounded-lg bg-[radial-gradient(120%_120%_at_50%_45%,transparent_30%,rgba(5,5,5,0.68)_100%)]"
+                    />
+                  </div>
                 </div>
               </Reveal>
 

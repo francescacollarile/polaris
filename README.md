@@ -37,6 +37,7 @@ Nessuna modifica al codice.
 | --------------------------- | ---------------------------------------- | ------------------- |
 | `hero.jpg`                  | Hero, colonna destra                     | Verticale 3:4       |
 | `francesca-02.jpg`          | «Chi sono», ritratto grande              | Verticale 4:5       |
+| `medaglia.jpg`              | «Chi sono», premiazione Alessandria 2024 | Quadrata 1:1        |
 | `francesca-03.jpg`          | «Chi sono», dettaglio sfalsato           | Quadrata 1:1        |
 | `training-01.jpg`           | Coaching online                          | Verticale 4:5       |
 | `academy.jpg`               | One To One — GPC Power Academy           | Verticale 5:6       |

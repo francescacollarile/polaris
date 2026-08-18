@@ -14,9 +14,9 @@ export const PROCESS_STEPS: ProcessStep[] = [
     summary:
       "Il percorso parte da una chiamata gratuita. Serve a capirsi, non a vendere.",
     points: [
-      "Ci parliamo: obiettivi, storia, contesto",
-      "Valutiamo insieme se il percorso è adatto alle tue necessità",
-      "Se non lo è, te lo dico",
+      "Ci parliamo: storia, obiettivi, contesto",
+      "Valutiamo insieme un percorso adatto alle tue necessità",
+      "In questa fase si parla apertamente",
     ],
   },
   {
@@ -49,8 +49,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
       "Non ricevi solo un programma: ricevi il motivo per cui è fatto così.",
     points: [
       "Video esecutivi degli esercizi",
-      "Audio esplicativi",
-      "Il perché di ogni scelta fatta",
+      "Audio in cui ti spiego il perché di ogni scelta fatta",
       "I dettagli a cui prestare attenzione durante l'allenamento",
     ],
   },

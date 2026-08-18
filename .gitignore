@@ -44,3 +44,6 @@ next-env.d.ts
 # archivio, non servono al sito e peserebbero 8 MB nel repository.
 # Le immagini pubblicate stanno in public/immagini/
 /foto/
+
+.vercel
+.env*

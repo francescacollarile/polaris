@@ -26,9 +26,11 @@ export const IMAGES = {
   /** Hero — ritratto verticale di Francesca, spazio negativo a sinistra. */
   hero: "/immagini/hero.jpg",
 
-  /** «Chi sono» — ritratto grande e dettaglio sfalsato. */
+  /** «Chi sono» — ritratto grande e coppia di dettagli sfalsati. */
   francesca02: "/immagini/francesca-02.jpg",
   francesca03: "/immagini/francesca-03.jpg",
+  /** Premiazione: 3° posto Calisthenics Endurance, Alessandria 2024. */
+  medaglia: "/immagini/medaglia.jpg",
 
   /** Coaching online. */
   training01: "/immagini/training-01.jpg",
