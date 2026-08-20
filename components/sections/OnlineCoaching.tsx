@@ -121,17 +121,9 @@ export function OnlineCoaching() {
 
           <div className="lg:col-span-6">
             <Reveal delay={0.1}>
-              {/* Ritaglio su fondo trasparente: niente cornice né velatura,
-                  il soggetto galleggia sul nero con l'alone dietro */}
+              {/* Nessun alone dietro: con la fusione "screen" traspariva
+                  attraverso il nero della foto disegnando un rettangolo. */}
               <div className="relative">
-                <div
-                  aria-hidden="true"
-                  className="halo-violet pointer-events-none absolute inset-x-0 top-[8%] mx-auto h-[70%] w-[78%] opacity-70 blur-2xl"
-                />
-                <div
-                  aria-hidden="true"
-                  className="halo-gold pointer-events-none absolute inset-x-0 bottom-0 mx-auto h-[45%] w-[90%] opacity-45 blur-3xl"
-                />
                 <BrandImage
                   src={IMAGES.training01}
                   alt="Coaching online: la programmazione preparata da Francesca Collarile arriva dal telefono mentre ti alleni"
@@ -141,8 +133,9 @@ export function OnlineCoaching() {
                   /* Riquadro con le proporzioni reali del ritaglio: il
                      montaggio lo riempie esattamente, senza bande vuote né
                      tagli. La larghezza massima ne governa l'altezza. */
-                  className="relative mx-auto aspect-[1336/1366] w-full max-w-[340px] sm:max-w-[430px] lg:max-w-[520px]"
-                  imageClassName="drop-shadow-[0_36px_70px_rgba(0,0,0,0.85)]"
+                  className="relative mx-auto aspect-[2048/1966] w-full max-w-[340px] sm:max-w-[430px] lg:max-w-[520px]"
+                  /* Il fondo del montaggio e stato portato a #050505, lo stesso
+                     nero della pagina: si fonde senza mostrare il rettangolo. */
                 />
               </div>
             </Reveal>
