@@ -7,6 +7,7 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RESULTS, SHOW_RESULTS, type ResultCase } from "@/data/results";
 import { CTA } from "@/data/site";
+import { cn } from "@/lib/utils";
 
 export function Results() {
   if (!SHOW_RESULTS || RESULTS.length === 0) return null;
@@ -48,11 +49,13 @@ export function Results() {
         </div>
 
         <RevealGroup
-          className="mt-16 grid gap-6 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7"
+          /* items-start: solo la card con la citazione e piu alta, le altre
+     si fermano sotto la foto invece di restare con un vuoto in fondo. */
+          className="mt-16 grid items-start gap-6 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5"
           stagger={0.12}
         >
           {RESULTS.map((item) => (
-            <RevealItem key={item.id} as="figure" className="h-full">
+            <RevealItem key={item.id} as="figure">
               <ResultCard result={item} />
             </RevealItem>
           ))}
@@ -67,7 +70,7 @@ function ResultCard({ result }: { result: ResultCase }) {
   const isComposite = Boolean(result.compositeImage);
 
   return (
-    <div className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-hairline bg-surface-900/60 transition-[border-color,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:border-violet-400/30">
+    <div className="group relative flex flex-col overflow-hidden rounded-lg border border-hairline bg-surface-900/60 transition-[border-color,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:border-violet-400/30">
       <div className="relative aspect-[4/5] w-full bg-[linear-gradient(160deg,var(--color-surface-800),var(--color-ink-950))]">
         {isComposite ? (
           <>
@@ -79,7 +82,7 @@ function ResultCard({ result }: { result: ResultCase }) {
               <BrandImage
                 src={result.compositeImage as string}
                 alt=""
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="h-full w-full scale-125 bg-transparent opacity-30 blur-2xl"
               />
             </div>
@@ -87,7 +90,7 @@ function ResultCard({ result }: { result: ResultCase }) {
               src={result.compositeImage as string}
               alt={result.alt}
               placeholderLabel="Confronto prima e dopo"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               contain
               className="absolute inset-0 h-full w-full bg-transparent"
             />
@@ -111,10 +114,13 @@ function ResultCard({ result }: { result: ResultCase }) {
           </div>
         )}
 
-        {/* Etichette prima / dopo */}
+        {/* Etichette prima / dopo: saltate se l'immagine le contiene gia */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between p-4"
+          className={cn(
+            "pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between p-4",
+            result.labelsInImage && "hidden",
+          )}
         >
           <span className="rounded-full border border-hairline-strong bg-ink-950/70 px-3 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-ash backdrop-blur-sm">
             Prima
@@ -131,9 +137,9 @@ function ResultCard({ result }: { result: ResultCase }) {
       </div>
 
       {/* I testi compaiono solo se presenti nei dati */}
-      {(result.title || result.description || result.duration ||
+      {(result.title || result.description || result.quote || result.duration ||
         (result.metrics && result.metrics.length > 0)) && (
-        <figcaption className="flex flex-1 flex-col p-6">
+        <figcaption className="flex flex-col p-6">
           {(result.title || result.duration) && (
             <div className="flex items-baseline justify-between gap-4">
               {result.title && (
@@ -147,6 +153,14 @@ function ResultCard({ result }: { result: ResultCase }) {
                 </span>
               )}
             </div>
+          )}
+
+          {result.quote && (
+            <blockquote>
+              <p className="font-display text-lg font-light italic leading-snug text-cream">
+                «{result.quote}»
+              </p>
+            </blockquote>
           )}
 
           {result.description && (

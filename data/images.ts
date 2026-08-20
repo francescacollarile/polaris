@@ -38,7 +38,8 @@ export const IMAGES = {
   /** One To One — GPC Power Academy. */
   academy: "/immagini/academy.jpg",
 
-  /** Risultati reali (già presenti). Ogni file contiene prima+dopo affiancati. */
+  /** Risultati reali. Ogni file contiene prima+dopo affiancati. */
+  fotomia: "/immagini/fotomia.jpg",
   risultato01: "/immagini/risultato-01.jpg",
   risultato02: "/immagini/risultato-02.jpg",
   risultato03: "/immagini/risultato-03.jpg",

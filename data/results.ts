@@ -28,14 +28,29 @@ export type ResultCase = {
   alt: string;
   title?: string;
   description?: string;
+  /** Parole in prima persona: rese come citazione, non come descrizione. */
+  quote?: string;
   duration?: string;
   metrics?: ResultMetric[];
+  /**
+   * L'immagine contiene già le diciture prima/dopo: il sito evita di
+   * sovrapporre le proprie etichette.
+   */
+  labelsInImage?: boolean;
 };
 
 /** Imposta a `false` per nascondere completamente la sezione. */
 export const SHOW_RESULTS = true;
 
 export const RESULTS: ResultCase[] = [
+  {
+    id: "francesca",
+    compositeImage: IMAGES.fotomia,
+    alt: "Confronto prima e dopo del percorso personale di Francesca Collarile",
+    quote:
+      "Il mio prima e dopo è stato un percorso duro: ho imparato cosa significa doversi ri-costruire, tornare sana e proseguire il percorso verso una me migliore.",
+    labelsInImage: true,
+  },
   {
     id: "percorso-01",
     compositeImage: IMAGES.risultato01,
