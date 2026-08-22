@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
     qualities: [75, 82, 88],
     deviceSizes: [360, 420, 640, 768, 1024, 1280, 1536, 1920, 2560],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // I percorsi delle immagini portano una firma del contenuto (?v=...)
+    // per invalidare la cache quando un file viene sostituito.
+    localPatterns: [{ pathname: "/immagini/**" }],
     // In sviluppo l'ottimizzatore deve rigenerare subito: sostituendo una
     // foto in `public/immagini/` il sito la mostra al primo ricaricamento.
     minimumCacheTTL: isDev ? 0 : 31536000,

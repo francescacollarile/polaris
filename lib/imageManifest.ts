@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -16,6 +17,12 @@ const EXT_PRIORITY = [".webp", ".avif", ".jpg", ".jpeg", ".png", ".svg"];
  * Il confronto avviene sul nome del file senza estensione e senza
  * distinzione di maiuscole: `hero.jpg`, `hero.jpeg`, `hero.JPG` e
  * `hero.webp` funzionano tutti, senza toccare `data/images.ts`.
+ *
+ * A ogni percorso viene aggiunta una firma del contenuto (`?v=`). Serve a
+ * invalidare la cache: le immagini sono servite con `Cache-Control` di un
+ * anno, quindi senza firma un file sostituito continuerebbe a mostrare la
+ * vecchia versione a chi ha gia visitato il sito. La firma dipende dal
+ * contenuto, non dalla data: se il file non cambia, la cache resta valida.
  *
  * Le immagini mancanti vengono sostituite da un placeholder curato:
  * niente richieste 404, niente immagini rotte, niente errori in console.
@@ -77,8 +84,22 @@ export function buildImageManifest(): ImageManifest {
             EXT_PRIORITY.indexOf(path.extname(b).toLowerCase()),
         )[0];
 
-    manifest[src] = `/${dir}/${best}`;
+    const percorso = `/${dir}/${best}`;
+    manifest[src] = `${percorso}?v=${firmaContenuto(path.join(publicDir, dir, best))}`;
   }
 
   return manifest;
+}
+
+/** Otto caratteri ricavati dal contenuto del file. */
+function firmaContenuto(percorsoAssoluto: string): string {
+  try {
+    return crypto
+      .createHash("sha1")
+      .update(fs.readFileSync(percorsoAssoluto))
+      .digest("hex")
+      .slice(0, 8);
+  } catch {
+    return "0";
+  }
 }
