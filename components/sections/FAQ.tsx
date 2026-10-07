@@ -1,15 +1,13 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowUpRight, Minus, Plus } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 import { useId, useState } from "react";
 
-import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { FAQ_ITEMS } from "@/data/faq";
-import { CTA } from "@/data/site";
 import { EASE_POLARIS } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
@@ -50,19 +48,6 @@ export function FAQ() {
                   Se la tua domanda non è qui, la risposta migliore te la do in
                   call: dura poco, è gratuita e serve esattamente a questo.
                 </p>
-              </Reveal>
-
-              <Reveal delay={0.24}>
-                <div className="mt-9">
-                  <Button
-                    href={CTA.primary.href}
-                    variant="secondary"
-                    size="md"
-                    icon={<ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />}
-                  >
-                    Prenota la call gratuita
-                  </Button>
-                </div>
               </Reveal>
             </div>
           </div>

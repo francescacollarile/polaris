@@ -3,8 +3,7 @@ import { Mail, Phone } from "lucide-react";
 
 import { InstagramIcon } from "@/components/ui/icons";
 import { Logo } from "@/components/ui/Logo";
-import { StarMark } from "@/components/ui/StarMark";
-import { BRAND, CONTACTS, GYM, LEGAL, PARTNER } from "@/data/site";
+import { BRAND, CONTACTS, LEGAL } from "@/data/site";
 
 const legalLinks = [
   { label: "Privacy Policy", href: "/privacy" },
@@ -19,21 +18,21 @@ export function Footer() {
     <footer className="relative isolate overflow-hidden border-t border-hairline bg-ink-950">
       <div
         aria-hidden="true"
-        className="halo-violet pointer-events-none absolute -left-40 top-0 h-[420px] w-[620px] opacity-30"
+        className="halo-violet pointer-events-none absolute -left-40 top-0 h-[300px] w-[620px] opacity-30"
       />
       <div aria-hidden="true" className="fine-grid absolute inset-0 opacity-40" />
 
-      <div className="shell relative pt-20 pb-8 sm:pt-24 sm:pb-9">
-        <div className="grid gap-x-10 gap-y-14 lg:grid-cols-[0.85fr_1fr_1.1fr_0.95fr]">
+      <div className="shell relative pt-12 pb-7 sm:pt-14 sm:pb-8">
+        <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
           {/* Marchio */}
           <div>
             <Logo />
           </div>
 
           {/* Contatti */}
-          <div className="space-y-5">
+          <div className="space-y-4">
             <h2 className="eyebrow text-gold-400/90">Contatti</h2>
-            <ul className="space-y-3.5 text-sm text-fog">
+            <ul className="space-y-2.5 text-sm text-fog">
               <li>
                 <a
                   href={`mailto:${CONTACTS.email}`}
@@ -71,54 +70,19 @@ export function Footer() {
               </li>
             </ul>
           </div>
-
-          {/* Dove / con chi */}
-          <div className="space-y-5">
-            <h2 className="eyebrow text-gold-400/90">Dove e con chi</h2>
-            <ul className="space-y-4 text-sm text-fog">
-              <li>
-                <p className="flex items-center gap-2 font-semibold text-cream">
-                  <StarMark className="h-2.5 w-2.5 text-gold-400" />
-                  {GYM.name}
-                </p>
-                <p className="mt-1 text-ash">
-                  {GYM.city} — sessioni One To One
-                </p>
-              </li>
-              <li>
-                <p className="flex items-center gap-2 font-semibold text-cream">
-                  <StarMark className="h-2.5 w-2.5 text-gold-400" />
-                  {PARTNER.name}
-                </p>
-                <p className="mt-1 text-ash">{PARTNER.description}</p>
-              </li>
-            </ul>
-          </div>
-
-          {/* Dati legali */}
-          <div className="space-y-5">
-            <h2 className="eyebrow text-gold-400/90">Dati legali</h2>
-            <dl className="space-y-3.5 text-sm">
-              <div>
-                <dt className="text-[0.62rem] uppercase tracking-[0.18em] text-muted">
-                  P. IVA
-                </dt>
-                <dd className="tabular mt-1 text-fog">{LEGAL.vat}</dd>
-              </div>
-              <div>
-                <dt className="text-[0.62rem] uppercase tracking-[0.18em] text-muted">
-                  Codice fiscale
-                </dt>
-                <dd className="tabular mt-1 text-fog">{LEGAL.taxCode}</dd>
-              </div>
-            </dl>
-          </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-5 border-t border-hairline pt-7 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {year} {BRAND.wordmark} — {BRAND.coach}. Tutti i diritti riservati.
-          </p>
+        <div className="mt-10 flex flex-col gap-4 border-t border-hairline pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+          {/* I dati fiscali stanno qui, su una riga: obbligatori, ma non
+              meritano una colonna intera. */}
+          <div className="space-y-1.5">
+            <p>
+              © {year} {BRAND.wordmark} — {BRAND.coach}. Tutti i diritti riservati.
+            </p>
+            <p className="tabular">
+              P. IVA {LEGAL.vat} · C.F. {LEGAL.taxCode}
+            </p>
+          </div>
           <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
             {legalLinks.map((link) => (
               <li key={link.href}>

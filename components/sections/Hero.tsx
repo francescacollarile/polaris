@@ -133,7 +133,7 @@ export function Hero() {
               initial={reduced ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.95, ease: EASE_POLARIS }}
-              className="mt-11 flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-muted"
+              className="mt-11 hidden flex-wrap items-center gap-x-3 sm:flex gap-y-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-muted"
             >
               {MICRO.map((item, index) => (
                 <li key={item} className="flex items-center gap-3">

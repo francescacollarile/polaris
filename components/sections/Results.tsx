@@ -1,12 +1,8 @@
-import { ArrowUpRight } from "lucide-react";
-
 import { BrandImage } from "@/components/media/BrandImage";
-import { Button } from "@/components/ui/Button";
-import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import { RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RESULTS, SHOW_RESULTS, type ResultCase } from "@/data/results";
-import { CTA } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 export function Results() {
@@ -34,18 +30,6 @@ export function Results() {
             lead="Persone reali, percorsi reali. Non trasformazioni in trenta giorni: mesi di lavoro programmato, corretto e ripetuto."
             className="max-w-3xl"
           />
-
-          <Reveal delay={0.24}>
-            <Button
-              href={CTA.primary.href}
-              variant="secondary"
-              size="md"
-              className="shrink-0"
-              icon={<ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />}
-            >
-              Costruisci il tuo percorso
-            </Button>
-          </Reveal>
         </div>
 
         <RevealGroup

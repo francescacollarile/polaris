@@ -169,7 +169,7 @@ public/immagini/        fotografie del brand
 Hero → Trust → Coaching Online → One To One →
 Chi sono → Risultati → Testimonianze → FAQ → CTA finale → Footer.
 
-L'ordine segue il funnel: impatto → posizionamento → problema → metodo →
+L'ordine segue il funnel: impatto → posizionamento →
 servizio → autorevolezza → prova → dubbi → call.
 
 Per riordinare, sposta i componenti in [`app/page.tsx`](app/page.tsx).

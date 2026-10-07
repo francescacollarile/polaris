@@ -1,26 +1,22 @@
-import { ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
 
-import { Button } from "@/components/ui/Button";
-import { WhatsappIcon } from "@/components/ui/icons";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { StarMark } from "@/components/ui/StarMark";
-import { CTA } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 export type CoachingPoint = { title: string; body: string };
 
 /**
  * Impaginazione comune a Coaching online e Coaching dal vivo: foto a
- * sinistra, a destra titolo, introduzione, elenco e pulsanti. Le due
+ * sinistra, a destra titolo, introduzione ed elenco. Le due
  * sezioni devono restare identiche, quindi la struttura sta qui sola.
  *
- * Su mobile l'ordine è titolo → punti → immagine → pulsanti.
+ * Su mobile l'ordine è titolo → punti → immagine. Niente pulsanti: la
+ * prenotazione resta nella navbar, nella barra mobile e nella CTA finale.
  *
- * Senza immagine, su desktop titolo e pulsanti stanno a sinistra e
- * l'elenco occupa la colonna di destra.
+ * Senza immagine, su desktop il titolo sta a sinistra e l'elenco a destra.
  */
 export function CoachingSplit({
   id,
@@ -46,7 +42,7 @@ export function CoachingSplit({
         <div className="grid items-center gap-x-16 gap-y-10 lg:grid-cols-2">
           {/* ---- Immagine ---- */}
           {hasImage && (
-            <div className="order-3 lg:order-none lg:col-start-1 lg:row-span-3 lg:row-start-1">
+            <div className="order-3 lg:order-none lg:col-start-1 lg:row-span-2 lg:row-start-1">
               <Reveal>{image}</Reveal>
             </div>
           )}
@@ -55,7 +51,7 @@ export function CoachingSplit({
           <div
             className={cn(
               "order-1 lg:order-none lg:row-start-1",
-              hasImage ? "lg:col-start-2" : "lg:col-start-1 lg:self-end",
+              hasImage ? "lg:col-start-2 lg:self-end" : "lg:col-start-1",
             )}
           >
             <Reveal>
@@ -82,7 +78,7 @@ export function CoachingSplit({
           <div
             className={cn(
               "order-2 lg:order-none lg:col-start-2",
-              hasImage ? "lg:row-start-2" : "lg:row-span-2 lg:row-start-1",
+              hasImage ? "lg:row-start-2 lg:self-start" : "lg:row-start-1",
             )}
           >
             <RevealGroup as="ul" className="space-y-0" stagger={0.1}>
@@ -104,36 +100,6 @@ export function CoachingSplit({
                 </RevealItem>
               ))}
             </RevealGroup>
-          </div>
-
-          {/* ---- Pulsanti ---- */}
-          <div
-            className={cn(
-              "order-4 lg:order-none",
-              hasImage
-                ? "lg:col-start-2 lg:row-start-3"
-                : "lg:col-start-1 lg:row-start-2 lg:self-start",
-            )}
-          >
-            <Reveal delay={0.2}>
-              <div className="flex flex-col gap-3.5 sm:flex-row">
-                <Button
-                  href={CTA.info.href}
-                  size="md"
-                  icon={<WhatsappIcon className="h-3.5 w-3.5" />}
-                >
-                  Richiedi informazioni
-                </Button>
-                <Button
-                  href={CTA.primary.href}
-                  variant="secondary"
-                  size="md"
-                  icon={<ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />}
-                >
-                  Prenota la call
-                </Button>
-              </div>
-            </Reveal>
           </div>
         </div>
       </div>

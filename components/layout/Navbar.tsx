@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { StarMark } from "@/components/ui/StarMark";
 import { RESULTS, SHOW_RESULTS } from "@/data/results";
-import { CONTACTS, CTA, NAV_LINKS, SECTION_TO_NAV } from "@/data/site";
+import { CTA, NAV_LINKS, SECTION_TO_NAV } from "@/data/site";
 import { TESTIMONIALS } from "@/data/testimonials";
 import { EASE_POLARIS } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -227,42 +227,6 @@ export function Navbar() {
                   </motion.li>
                 ))}
               </ul>
-
-              <motion.div
-                initial={reduced ? false : { opacity: 0, y: 22 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: reduced ? 0 : 0.12 + VISIBLE_NAV_LINKS.length * 0.07,
-                  ease: EASE_POLARIS,
-                }}
-                className="mt-10 flex flex-col gap-4"
-              >
-                <Button
-                  href={CTA.primary.href}
-                  size="lg"
-                  className="w-full"
-                  icon={<ArrowUpRight className="h-4 w-4" aria-hidden="true" />}
-                >
-                  Prenota la call gratuita
-                </Button>
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.72rem] uppercase tracking-[0.18em] text-muted">
-                  <a
-                    href={CONTACTS.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-colors duration-300 hover:text-cream"
-                  >
-                    Instagram
-                  </a>
-                  <a
-                    href={CONTACTS.phoneHref}
-                    className="transition-colors duration-300 hover:text-cream"
-                  >
-                    {CONTACTS.phoneDisplay}
-                  </a>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         )}
