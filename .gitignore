@@ -47,3 +47,6 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# Il file di esempio va versionato: elenca le variabili richieste.
+!.env.example
