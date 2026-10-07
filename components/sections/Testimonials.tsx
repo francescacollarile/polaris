@@ -3,7 +3,8 @@
 import { AnimatePresence, motion } from "motion/react";
 import { Quote, X } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
 
 import { InstagramIcon } from "@/components/ui/icons";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
@@ -12,6 +13,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TESTIMONIALS, type Testimonial } from "@/data/testimonials";
 import { EASE_POLARIS } from "@/lib/motion";
 import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
+import { useScrollLock } from "@/lib/useScrollLock";
 
 /** Righe visibili prima del troncamento. */
 const CLAMP_LINES = 6;
@@ -218,14 +220,20 @@ function TestimonialModal({
 }) {
   const reduced = useSafeReducedMotion();
   const closeRef = useRef<HTMLButtonElement>(null);
+  // Il portal serve il DOM: lato server non si rende nulla.
+  const isClient = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  );
+
+  useScrollLock(testimonial !== null);
 
   useEffect(() => {
     if (!testimonial) return;
 
     const previouslyFocused = document.activeElement as HTMLElement | null;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    closeRef.current?.focus();
+    closeRef.current?.focus({ preventScroll: true });
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
@@ -233,19 +241,20 @@ function TestimonialModal({
     document.addEventListener("keydown", onKeyDown);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", onKeyDown);
-      previouslyFocused?.focus();
+      previouslyFocused?.focus({ preventScroll: true });
     };
   }, [testimonial, onClose]);
 
-  return (
+  if (!isClient) return null;
+
+  /* Portal sul body: la <Section> ha `isolate`, e da dentro lo z-index
+     della modale restava sotto navbar e barra CTA mobile. */
+  return createPortal(
     <AnimatePresence>
       {testimonial && (
         <motion.div
-          /* Il padding superiore tiene il pannello sempre sotto la navbar:
-             senza, a viewport basse la modale ci finiva a filo. */
-          className="fixed inset-0 z-[70] flex items-end justify-center p-4 pt-24 sm:items-center sm:p-6 sm:pt-28"
+          className="fixed inset-0 z-[70] flex items-center justify-center p-4 sm:p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -271,7 +280,9 @@ function TestimonialModal({
             /* overflow-x-hidden: l'alone decorativo sborda a destra e, con
                l'asse Y scrollabile, il browser attiverebbe anche la barra
                orizzontale. */
-            className="relative max-h-[74svh] w-full max-w-2xl overflow-y-auto overflow-x-hidden rounded-lg border border-hairline-strong bg-[linear-gradient(155deg,var(--color-surface-800),var(--color-ink-900)_70%)] p-7 shadow-[0_60px_120px_-40px_rgba(0,0,0,0.95)] sm:p-10"
+            /* overscroll-contain: arrivati in fondo al testo, il gesto non
+               si trasmette alla pagina sotto. */
+            className="relative max-h-[85svh] w-full max-w-2xl overflow-y-auto overflow-x-hidden overscroll-contain rounded-lg border border-hairline-strong bg-[linear-gradient(155deg,var(--color-surface-800),var(--color-ink-900)_70%)] p-7 shadow-[0_60px_120px_-40px_rgba(0,0,0,0.95)] sm:p-10"
           >
             <div
               aria-hidden="true"
@@ -328,9 +339,12 @@ function TestimonialModal({
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }
+
+const noopSubscribe = () => () => {};
 
 /* ------------------------------------------------------------------ */
 /* Anteprima visibile solo in sviluppo                                 */

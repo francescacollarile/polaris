@@ -1,43 +1,12 @@
-import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import { Button } from "@/components/ui/Button";
-import { InstagramIcon, WhatsappIcon } from "@/components/ui/icons";
+import { WhatsappIcon } from "@/components/ui/icons";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { OrbitField } from "@/components/ui/OrbitField";
-import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import { Reveal } from "@/components/ui/Reveal";
 import { StarMark } from "@/components/ui/StarMark";
 import { CONTACTS, CTA } from "@/data/site";
-
-const CHANNELS = [
-  {
-    icon: WhatsappIcon,
-    label: "WhatsApp",
-    value: "Messaggio diretto",
-    href: CONTACTS.whatsapp,
-    external: true,
-  },
-  {
-    icon: InstagramIcon,
-    label: "Instagram",
-    value: CONTACTS.instagramHandle,
-    href: CONTACTS.instagram,
-    external: true,
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: CONTACTS.email,
-    href: `mailto:${CONTACTS.email}`,
-    external: false,
-  },
-  {
-    icon: Phone,
-    label: "Telefono",
-    value: CONTACTS.phoneDisplay,
-    href: CONTACTS.phoneHref,
-    external: false,
-  },
-];
 
 export function FinalCTA() {
   return (
@@ -105,38 +74,6 @@ export function FinalCTA() {
             </Button>
           </div>
         </Reveal>
-
-        {/* Canali di contatto */}
-        <RevealGroup
-          className="mx-auto mt-20 grid max-w-5xl grid-cols-1 gap-px overflow-hidden rounded-lg border border-hairline bg-[var(--color-hairline)] sm:grid-cols-2 lg:grid-cols-4"
-          stagger={0.08}
-        >
-          {CHANNELS.map((channel) => {
-            const Icon = channel.icon;
-            return (
-              <RevealItem key={channel.label}>
-                <a
-                  href={channel.href}
-                  {...(channel.external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                  className="group flex h-full flex-col items-center gap-3 bg-ink-950/90 px-5 py-7 transition-colors duration-700 hover:bg-surface-900"
-                >
-                  <Icon
-                    className="h-5 w-5 text-gold-400 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5"
-                    aria-hidden="true"
-                  />
-                  <span className="text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-muted">
-                    {channel.label}
-                  </span>
-                  <span className="break-all text-[0.82rem] text-fog transition-colors duration-500 group-hover:text-cream">
-                    {channel.value}
-                  </span>
-                </a>
-              </RevealItem>
-            );
-          })}
-        </RevealGroup>
       </div>
     </section>
   );
