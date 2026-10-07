@@ -81,25 +81,15 @@ export function StructuredData() {
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Percorsi Polaris",
+      name: "Servizi Polaris",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Full Coaching — Coaching Online",
+            name: "Coaching Online",
             description:
-              "Programmazione personalizzata, video esecutivi, audio esplicativi, feedback video per tutta la durata del percorso, monitoraggio e adattamento continui.",
-            serviceType: "Coaching online",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Coaching Ridotto — Coaching Online",
-            description:
-              "Programmazione personalizzata, video esecutivi, audio esplicativi, feedback video durante una settimana con indicazioni e correzioni iniziali.",
+              "Programmazione personalizzata, video esecutivi, audio esplicativi, feedback sui video degli allenamenti, monitoraggio e adattamento continui.",
             serviceType: "Coaching online",
           },
         },

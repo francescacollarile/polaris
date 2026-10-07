@@ -112,9 +112,6 @@ export const SECTION_TO_NAV: Record<string, string> = {
   testimonianze: "#testimonianze",
   faq: "#faq",
   contatti: "#faq",
-  // `percorsi` è volutamente assente: sta dopo le testimonianze ma
-  // appartiene al blocco Coaching, e mapparlo lì farebbe saltare
-  // l'evidenziazione all'indietro durante lo scroll.
 };
 
 export const CTA = {

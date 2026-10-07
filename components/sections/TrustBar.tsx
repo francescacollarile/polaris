@@ -3,7 +3,7 @@ import { StarMark } from "@/components/ui/StarMark";
 
 /** Solo elementi reali e verificabili. */
 const ITEMS = [
-  { value: "3+ anni", label: "di esperienza nel settore" },
+  { value: "4+ anni", label: "di esperienza nel settore" },
   {
     value: "Nerd Training Academy",
     label: "Formazione sulla programmazione dell'allenamento",

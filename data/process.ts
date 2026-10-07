@@ -59,8 +59,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     summary:
       "Mi mandi i video dei tuoi allenamenti e io guardo come ti muovi davvero.",
     points: [
-      "Full Coaching: invio video per tutta la durata del percorso",
-      "Coaching Ridotto: invio video durante una settimana",
+      "Invio dei video dei tuoi allenamenti",
       "Correzioni tecniche puntuali su quello che vedo",
     ],
   },

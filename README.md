@@ -113,22 +113,7 @@ Per nascondere l'intera sezione: `SHOW_RESULTS = false`.
 
 ---
 
-## 4. Aggiungere i prezzi
-
-File: [`data/programs.ts`](data/programs.ts).
-
-I prezzi non sono stati forniti e non sono stati inventati. Ogni percorso ha:
-
-```ts
-price: null,                                                  // → mostra priceNote
-priceNote: "Definito insieme in call, in base a durata e obiettivo",
-```
-
-Valorizza `price` (es. `"290 €"`) e il sito lo mostra al posto della nota.
-
----
-
-## 5. Dati mancanti da completare
+## 4. Dati mancanti da completare
 
 | Dato               | Dove                                        | Stato                        |
 | ------------------ | ------------------------------------------- | ---------------------------- |
@@ -153,7 +138,7 @@ Serve per canonical, Open Graph, `sitemap.xml` e `robots.txt`.
 
 ---
 
-## 6. Struttura del progetto
+## 5. Struttura del progetto
 
 ```
 app/
@@ -167,7 +152,7 @@ app/
 components/
   layout/               Navbar, Footer, MobileCTABar, ScrollProgress, LegalShell
   media/                BrandImage (+ manifest immagini)
-  sections/             le 16 sezioni della homepage
+  sections/             le sezioni della homepage
   seo/                  dati strutturati
   ui/                   Button, Reveal, Section, StarMark, OrbitField, …
 data/                   TUTTI i contenuti modificabili
@@ -180,19 +165,19 @@ public/immagini/        fotografie del brand
 
 ---
 
-## 7. Ordine delle sezioni
+## 6. Ordine delle sezioni
 
 Hero → Trust → Il metodo (i 6 step) → Coaching Online → One To One →
-Chi sono → Risultati → Testimonianze → Percorsi → FAQ → CTA finale → Footer.
+Chi sono → Risultati → Testimonianze → FAQ → CTA finale → Footer.
 
 L'ordine segue il funnel: impatto → posizionamento → problema → metodo →
-servizio → autorevolezza → prova → offerta → dubbi → call.
+servizio → autorevolezza → prova → dubbi → call.
 
 Per riordinare, sposta i componenti in [`app/page.tsx`](app/page.tsx).
 
 ---
 
-## 8. Accessibilità e movimento
+## 7. Accessibilità e movimento
 
 - HTML semantico, un solo `<h1>`, gerarchia dei titoli rispettata.
 - Navigazione da tastiera completa, focus ring oro sempre visibile, skip link.
@@ -206,10 +191,10 @@ Per riordinare, sposta i componenti in [`app/page.tsx`](app/page.tsx).
 
 ---
 
-## 9. Note sui contenuti
+## 8. Note sui contenuti
 
 Il sito non contiene numeri, recensioni, qualifiche o risultati inventati.
-Gli unici dati usati sono quelli forniti: 3+ anni di esperienza, ~2 anni di
+Gli unici dati usati sono quelli forniti: 4+ anni di esperienza, ~2 anni di
 coaching online, qualifica FIPE di I livello, Nerd Training Academy, Barbell
 Rehab Course, 3° posto Calisthenics Endurance Alessandria 2024 (Avanzato
 Femminile), collaborazione con Heracles Nutrition, durate 6 settimane / 3 mesi /
@@ -225,7 +210,7 @@ problematiche viene sempre richiamato il disclaimer in
 
 ---
 
-## 10. Deploy
+## 9. Deploy
 
 Il sito è interamente statico (tutte le route sono prerenderizzate).
 

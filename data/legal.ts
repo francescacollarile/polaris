@@ -338,12 +338,8 @@ export const TERMS: LegalDoc = {
           type: "definitions",
           items: [
             {
-              term: "Full Coaching",
-              text: "Percorso online che comprende programmazione personalizzata, video esecutivi degli esercizi, audio esplicativi delle scelte effettuate, invio di video degli allenamenti da parte dell'allievo per tutta la durata del percorso, monitoraggio continuo e adattamento della programmazione.",
-            },
-            {
-              term: "Coaching Ridotto",
-              text: "Percorso online che comprende programmazione personalizzata, video esecutivi, audio esplicativi e una finestra di confronto sui video degli allenamenti della durata di una settimana, con indicazioni e correzioni iniziali.",
+              term: "Coaching Online",
+              text: "Percorso online che comprende programmazione personalizzata, video esecutivi degli esercizi, audio esplicativi delle scelte effettuate, invio di video degli allenamenti da parte dell'allievo, monitoraggio e adattamento della programmazione.",
             },
             {
               term: "One To One",
@@ -353,7 +349,7 @@ export const TERMS: LegalDoc = {
         },
         {
           type: "paragraph",
-          text: "I percorsi online sono disponibili nelle durate di sei settimane, tre mesi e sei mesi. La durata e la modalità vengono concordate durante la chiamata conoscitiva.",
+          text: "Il percorso online è disponibile nelle durate di sei settimane, tre mesi e sei mesi. La durata viene concordata durante la chiamata conoscitiva.",
         },
       ],
     },
