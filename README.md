@@ -39,7 +39,6 @@ Nessuna modifica al codice.
 | `francesca-02.jpg`          | «Chi sono», ritratto grande              | Verticale 4:5       |
 | `medaglia.jpg`              | «Chi sono», premiazione Alessandria 2024 | Quadrata 1:1        |
 | `francesca-03.jpg`          | «Chi sono», dettaglio sfalsato           | Quadrata 1:1        |
-| `training-01.jpg`           | Coaching online                          | Verticale 4:5       |
 | `academy.jpg`               | One To One — GPC Power Academy           | Verticale 5:6       |
 | `risultato-01/02/03.jpg`    | Risultati (già presenti)                 | Prima+dopo affiancati |
 | `logo.svg`                  | Logo completo, sostituisce la ricostruzione (facoltativo) | SVG/PNG trasparente |
@@ -167,7 +166,7 @@ public/immagini/        fotografie del brand
 
 ## 6. Ordine delle sezioni
 
-Hero → Trust → Il metodo (i 6 step) → Coaching Online → One To One →
+Hero → Trust → Coaching Online → One To One →
 Chi sono → Risultati → Testimonianze → FAQ → CTA finale → Footer.
 
 L'ordine segue il funnel: impatto → posizionamento → problema → metodo →

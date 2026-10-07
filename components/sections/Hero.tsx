@@ -119,13 +119,13 @@ export function Hero() {
               </MagneticButton>
 
               <Button
-                href={CTA.method.href}
+                href={CTA.coaching.href}
                 variant="secondary"
                 size="lg"
                 className="w-full sm:w-auto"
                 icon={<ArrowDown className="h-4 w-4" aria-hidden="true" />}
               >
-                Scopri il metodo
+                Scopri il coaching
               </Button>
             </motion.div>
 
@@ -208,11 +208,11 @@ export function Hero() {
 
       {/* ---- Indicatore di scroll ---- */}
       <motion.a
-        href="#metodo"
+        href="#coaching"
         initial={reduced ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.3 }}
-        aria-label="Scorri per scoprire il metodo"
+        aria-label="Scorri per scoprire il coaching"
         className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2.5 text-muted transition-colors duration-500 hover:text-gold-300 lg:flex"
       >
         <span className="text-[0.6rem] uppercase tracking-[0.32em]">Scorri</span>

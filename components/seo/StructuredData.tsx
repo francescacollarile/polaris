@@ -41,7 +41,7 @@ export function StructuredData() {
       },
       {
         "@type": "EducationalOccupationalCredential",
-        credentialCategory: "Formazione tecnica",
+        credentialCategory: "Certificazione",
         recognizedBy: { "@type": "Organization", name: "Barbell Rehab Course" },
       },
     ],

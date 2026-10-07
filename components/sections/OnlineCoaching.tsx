@@ -1,6 +1,3 @@
-import { BrandImage } from "@/components/media/BrandImage";
-import { IMAGES } from "@/data/images";
-
 import { CoachingSplit, type CoachingPoint } from "./CoachingSplit";
 
 const DELIVERABLES: CoachingPoint[] = [
@@ -47,18 +44,6 @@ export function OnlineCoaching() {
         </>
       }
       points={DELIVERABLES}
-      image={
-        <BrandImage
-          src={IMAGES.training01}
-          alt="Coaching online: la programmazione preparata da Francesca Collarile arriva dal telefono mentre ti alleni"
-          placeholderLabel="Coaching online"
-          sizes="(max-width: 1024px) 80vw, 42vw"
-          contain
-          /* Riquadro con le proporzioni reali del montaggio, il cui fondo è
-             lo stesso nero della pagina: niente bordo, si fonde col fondo. */
-          className="relative mx-auto aspect-[2048/1966] w-full max-w-[340px] sm:max-w-[430px] lg:max-w-[520px]"
-        />
-      }
     />
   );
 }

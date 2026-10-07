@@ -8,6 +8,7 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { StarMark } from "@/components/ui/StarMark";
 import { CTA } from "@/data/site";
+import { cn } from "@/lib/utils";
 
 export type CoachingPoint = { title: string; body: string };
 
@@ -17,6 +18,9 @@ export type CoachingPoint = { title: string; body: string };
  * sezioni devono restare identiche, quindi la struttura sta qui sola.
  *
  * Su mobile l'ordine è titolo → punti → immagine → pulsanti.
+ *
+ * Senza immagine, su desktop titolo e pulsanti stanno a sinistra e
+ * l'elenco occupa la colonna di destra.
  */
 export function CoachingSplit({
   id,
@@ -31,21 +35,29 @@ export function CoachingSplit({
   title: ReactNode;
   intro: ReactNode;
   points: CoachingPoint[];
-  image: ReactNode;
+  image?: ReactNode;
 }) {
   const titleId = `${id}-title`;
+  const hasImage = Boolean(image);
 
   return (
     <Section id={id} labelledBy={titleId} className="overflow-hidden">
       <div className="shell relative">
         <div className="grid items-center gap-x-16 gap-y-10 lg:grid-cols-2">
           {/* ---- Immagine ---- */}
-          <div className="order-3 lg:order-none lg:col-start-1 lg:row-span-3 lg:row-start-1">
-            <Reveal>{image}</Reveal>
-          </div>
+          {hasImage && (
+            <div className="order-3 lg:order-none lg:col-start-1 lg:row-span-3 lg:row-start-1">
+              <Reveal>{image}</Reveal>
+            </div>
+          )}
 
           {/* ---- Titolo ---- */}
-          <div className="order-1 lg:order-none lg:col-start-2 lg:row-start-1">
+          <div
+            className={cn(
+              "order-1 lg:order-none lg:row-start-1",
+              hasImage ? "lg:col-start-2" : "lg:col-start-1 lg:self-end",
+            )}
+          >
             <Reveal>
               <Eyebrow>{eyebrow}</Eyebrow>
             </Reveal>
@@ -67,7 +79,12 @@ export function CoachingSplit({
           </div>
 
           {/* ---- Punti ---- */}
-          <div className="order-2 lg:order-none lg:col-start-2 lg:row-start-2">
+          <div
+            className={cn(
+              "order-2 lg:order-none lg:col-start-2",
+              hasImage ? "lg:row-start-2" : "lg:row-span-2 lg:row-start-1",
+            )}
+          >
             <RevealGroup as="ul" className="space-y-0" stagger={0.1}>
               {points.map((point) => (
                 <RevealItem
@@ -90,7 +107,14 @@ export function CoachingSplit({
           </div>
 
           {/* ---- Pulsanti ---- */}
-          <div className="order-4 lg:order-none lg:col-start-2 lg:row-start-3">
+          <div
+            className={cn(
+              "order-4 lg:order-none",
+              hasImage
+                ? "lg:col-start-2 lg:row-start-3"
+                : "lg:col-start-1 lg:row-start-2 lg:self-start",
+            )}
+          >
             <Reveal delay={0.2}>
               <div className="flex flex-col gap-3.5 sm:flex-row">
                 <Button
