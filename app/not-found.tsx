@@ -48,10 +48,10 @@ export default function NotFound() {
         <p className="mt-10 text-xs text-muted">
           Oppure vai direttamente al{" "}
           <Link
-            href="/#metodo"
+            href="/#coaching"
             className="underline decoration-gold-600/50 underline-offset-4 transition-colors duration-300 hover:text-cream"
           >
-            metodo
+            coaching
           </Link>
           .
         </p>

@@ -89,7 +89,6 @@ export const PARTNER = {
 
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
-  { label: "Metodo", href: "#metodo" },
   { label: "Coaching", href: "#coaching" },
   { label: "Chi sono", href: "#chi-sono" },
   { label: "Risultati", href: "#risultati" },
@@ -104,7 +103,6 @@ export const NAV_LINKS = [
  */
 export const SECTION_TO_NAV: Record<string, string> = {
   home: "#home",
-  metodo: "#metodo",
   coaching: "#coaching",
   "one-to-one": "#coaching",
   "chi-sono": "#chi-sono",
@@ -116,7 +114,6 @@ export const SECTION_TO_NAV: Record<string, string> = {
 
 export const CTA = {
   primary: { label: "Prenota la call gratuita", href: CONTACTS.calendly },
-  method: { label: "Scopri il metodo", href: "#metodo" },
   coaching: { label: "Scopri il coaching", href: "#coaching" },
   talk: { label: "Parliamone in call", href: CONTACTS.calendly },
   start: { label: "Inizia il tuo percorso", href: CONTACTS.calendly },
